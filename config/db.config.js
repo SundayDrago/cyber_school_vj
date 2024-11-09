@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 const db_config = {
-    host: 'localhost',
-    user: 'root',
-    password: 'kaspastinski',
-    database: 'cyber_school',
+    host: process.env.DB_HOST || 'bnqowv5zvavsstpfzms5-mysql.services.clever-cloud.com',
+    user: process.env.DB_USER || 'uwhl8icn14e4vtbo',
+    password: process.env.DB_PASSWORD || 'bf9QeGw13pp0aSBrxTw0',
+    database: process.env.DB_NAME || 'bnqowv5zvavsstpfzms5',
     dialect: 'mysql',
-    port: 3306,
+    port: process.env.DB_PORT || 3306,
     pool: {
         max: 10,
         min: 0,
@@ -13,5 +15,5 @@ const db_config = {
     }
 };
 
-// Export the pool for use in other parts of the application
+// Export the config for use in other parts of the application
 module.exports = db_config;
